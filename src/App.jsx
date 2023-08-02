@@ -1,12 +1,21 @@
 import './App.css'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ChatPage from './pages/ChatPage/ChatPage'
+import Login from './pages/Login/Login'
+import Registration from './pages/Registration/Registration'
 function App() {
 
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/" element={<ChatPage />} />
+          <Route path='/*' element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 

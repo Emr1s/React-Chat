@@ -1,15 +1,32 @@
-import React from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import './Message.scss'
+import { ChatContext } from '../../context/ChatContext';
+import { AuthContext } from '../../context/AuthContext';
 
-const Message = () => {
+const Message = ({ message }) => {
+    const { data } = useContext(ChatContext);
+    const { user } = useContext(AuthContext);
+    const ref = useRef();
+
+    useEffect(() => {
+        ref.current.scrollIntoView({
+            behavior: 'smooth'
+        })
+    }, [message])
     return (
-        <div className='messageChat'>
+        <div className='messageChat' >
             <div className="msg">
-                {/* <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-733872.jpg&fm=jpg" alt="" style={{ height: '200px', width: '200px',  objectFit: 'cover' }}/> */}
-                <span>Hello</span>
+                <span>{message.text}</span>
+                {message.img && <img src={message.img} style={{ height: '300px', width: '300px', objectFit: 'contain' }} alt="" />}
             </div>
-            <div className="photo">
-                <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-733872.jpg&fm=jpg" style={{ height: '40px', width: '40px', borderRadius: '50%', objectFit: 'cover' }} alt="" />
+            <div className="photo" ref={ref}>
+                <img
+                    src={message.senderId === user.uid
+                        ? user.photoURL
+                        : data.user.photoURL
+                    }
+                    style={{ height: '40px', width: '40px', borderRadius: '50%', objectFit: 'cover' }}
+                    alt="" />
                 <p>just now</p>
             </div>
         </div>

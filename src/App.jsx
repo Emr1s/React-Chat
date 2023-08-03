@@ -4,7 +4,7 @@ import ChatPage from './pages/ChatPage/ChatPage'
 import Login from './pages/Login/Login'
 import Registration from './pages/Registration/Registration'
 import { useContext } from 'react'
-import { AuthContext } from './context/context'
+import { AuthContext } from './context/AuthContext'
 function App() {
 
   const { user } = useContext(AuthContext)

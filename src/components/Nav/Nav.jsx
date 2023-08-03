@@ -5,7 +5,7 @@ import { RxExit } from 'react-icons/rx'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../firebase'
 import { db } from "../../firebase";
-import { AuthContext } from "../../context/context";
+import { AuthContext } from "../../context/AuthContext";
 
 const Nav = () => {
     const [search, setSearch] = useState('')

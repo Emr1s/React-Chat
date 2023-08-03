@@ -1,0 +1,22 @@
+.messageChat{
+    display: flex;
+    justify-content: end;
+    color: #fff;
+    padding: 5px 20px;
+    gap: 10px;
+    font-size: 16px;
+
+    .msg{
+        background: #333;
+        display: flex;
+        margin:  20px 0;
+        align-items: center;
+        border-radius:  10px 0 10px 10px;
+        padding: 5px 15px;
+        color: #fff;
+        max-width: max-content;
+    }
+    p{
+        font-size: 12px;
+    }
+}

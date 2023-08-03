@@ -1,0 +1,28 @@
+.chatmessage{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    width: 100%;
+
+    .chatInfo{
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px;
+
+    
+
+    }
+    img{
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        object-fit: cover;
+    }
+
+    &:hover{
+        background-color: #777;
+        cursor: pointer;
+    }
+
+
+}
